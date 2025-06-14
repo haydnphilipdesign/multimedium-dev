@@ -1,7 +1,6 @@
 import { 
   Code, 
   Palette, 
-  Smartphone, 
   Database,
   Globe,
   Shield,
@@ -25,30 +24,30 @@ const Services: React.FC = () => {
     {
       id: 1,
       icon: <Code className="h-8 w-8" />,
-      title: "Custom Website Design",
-      description: "Unique, modern websites designed specifically for your business. From concept to launch, every site is crafted to reflect your brand and convert visitors.",
-      features: ["Responsive Design", "Mobile-First Approach", "Brand Integration", "SEO Optimized"]
+      title: "Web Design & Development",
+      description: "Clean, modern, results-driven websites that convert visitors into customers. From simple business sites to complex web applications, built with the latest technologies.",
+      features: ["Responsive Design", "React & TypeScript", "SEO Optimized", "Performance Focused"]
     },
     {
       id: 2,
       icon: <Palette className="h-8 w-8" />,
       title: "UI/UX Design",
       description: "User-centered design that prioritizes usability and conversion. Creating intuitive experiences that guide visitors toward your business goals.",
-      features: ["User Experience Design", "Wireframing", "Prototyping", "Visual Design"]
+      features: ["User Experience Design", "Wireframing & Prototyping", "Visual Design", "Conversion Optimization"]
     },
     {
       id: 3,
-      icon: <Smartphone className="h-8 w-8" />,
-      title: "Responsive Development",
-      description: "Websites that work perfectly on every device. Clean, fast-loading sites built with modern web technologies and best practices.",
-      features: ["Mobile Responsive", "Fast Loading", "Modern Code", "Cross-Browser Compatible"]
+      icon: <Database className="h-8 w-8" />,
+      title: "Custom Development",
+      description: "Tailored solutions for unique business needs. From workflow automation platforms to custom portals and specialized applications.",
+      features: ["Custom Applications", "API Integration", "Database Design", "Workflow Automation"]
     },
     {
       id: 4,
       icon: <Globe className="h-8 w-8" />,
-      title: "Branding & Logo Design",
-      description: "Professional branding that makes your business memorable. Logo design, color palettes, and brand guidelines that work across all platforms.",
-      features: ["Logo Design", "Brand Identity", "Color Schemes", "Brand Guidelines"]
+      title: "Consulting & Strategy",
+      description: "Expert guidance on digital strategy, technology choices, and optimization. Helping businesses make informed decisions about their online presence.",
+      features: ["Digital Strategy", "Technology Consulting", "Process Optimization", "Growth Planning"]
     },
     {
       id: 5,

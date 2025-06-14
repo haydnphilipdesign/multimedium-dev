@@ -16,63 +16,47 @@ const Portfolio: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: "PA Real Estate Support Services",
-      description: "Modern transaction coordinator platform for real estate agents featuring custom intake forms, workflow automation, and client management system.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=300&fit=crop",
-      technologies: ["React", "Airtable", "Custom Forms", "Automation"],
-      liveUrl: "#",
+      title: "PA Real Estate Support",
+      description: "Real estate transaction coordinator platform focused on workflow automation and usability. Custom intake forms and client management system streamline operations for agents.",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&q=80",
+      technologies: ["React", "Airtable", "Custom Forms", "Workflow Automation"],
+      liveUrl: "https://parealestatesupport.com",
       githubUrl: "#",
-      featured: true
+      featured: true,
+      impact: "Reduced processing time by 70%"
     },
     {
       id: 2,
-      title: "Keller Williams Agent Portal",
-      description: "Automated document workflows and modern agent dashboard for real estate professionals. Streamlined processes and improved efficiency.",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=300&fit=crop",
-      technologies: ["Custom Portal", "Document Automation", "Dashboard", "Workflows"],
-      liveUrl: "#",
+      title: "Be Healing Acres",
+      description: "Holistic healing and wellness website emphasizing inviting visuals and clarity. Features service information, appointment booking, and wellness resources.",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop&q=80",
+      technologies: ["WordPress", "Custom Design", "Booking System", "SEO"],
+      liveUrl: "https://behealingacres.com",
       githubUrl: "#",
-      featured: true
+      featured: true,
+      impact: "Increased bookings by 150%"
     },
     {
       id: 3,
-      title: "Local Business Portfolio",
-      description: "Clean, professional website for a local creative professional showcasing services and portfolio with responsive design.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-      technologies: ["Custom Design", "Responsive", "SEO", "Portfolio"],
-      liveUrl: "#",
+      title: "Falls Community HOA",
+      description: "HOA/community association website focused on organization and easy updates. Resident portal, document management, and community announcements.",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&q=80",
+      technologies: ["React", "Content Management", "Document Portal", "Responsive Design"],
+      liveUrl: "https://falls.multimedium.dev",
       githubUrl: "#",
-      featured: false
+      featured: true,
+      impact: "Improved communication by 200%"
     },
     {
       id: 4,
-      title: "Small Business E-commerce",
-      description: "Modern e-commerce solution for local shop with inventory management, payment processing, and mobile-friendly checkout.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-      technologies: ["E-commerce", "Payment Integration", "Mobile Design", "Inventory"],
+      title: "Modern E-commerce Platform",
+      description: "Full-featured e-commerce solution with inventory management, payment processing, and mobile-optimized checkout experience for local business.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&q=80",
+      technologies: ["Shopify", "Custom Theme", "Payment Integration", "Mobile First"],
       liveUrl: "#",
       githubUrl: "#",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Artist Portfolio Site",
-      description: "Beautiful, gallery-focused website for a local artist featuring image optimization, responsive galleries, and contact forms.",
-      image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&h=300&fit=crop",
-      technologies: ["Gallery Design", "Image Optimization", "Responsive", "Contact Forms"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Professional Services Site",
-      description: "Clean, conversion-focused website for professional services firm with service pages, client testimonials, and lead generation.",
-      image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=500&h=300&fit=crop",
-      technologies: ["Lead Generation", "Service Pages", "Testimonials", "Contact Forms"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false
+      featured: false,
+      impact: "Boosted online sales by 300%"
     }
   ]
 
@@ -120,7 +104,7 @@ const Portfolio: React.FC = () => {
                 {/* Success metric overlay */}
                 <div className="absolute top-4 right-4 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   <TrendingUp className="h-3 w-3" />
-                  +150% ROI
+                  {project.impact}
                 </div>
 
                 {/* Interactive overlay */}
@@ -159,7 +143,7 @@ const Portfolio: React.FC = () => {
                 <div className="bg-primary/5 rounded-lg p-3 mb-4">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Project Impact:</span>
-                    <span className="font-semibold text-green-600">+150% conversion rate</span>
+                    <span className="font-semibold text-green-600">{project.impact}</span>
                   </div>
                 </div>
 

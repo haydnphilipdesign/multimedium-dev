@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from 'lucide-react'
 
 /**
  * Footer component with contact information and social links
@@ -10,9 +10,9 @@ import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
  */
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/haydn', label: 'GitHub' },
+    { icon: Github, href: 'https://github.com/haydnwatkins', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/haydnwatkins', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/multimedium', label: 'Twitter' },
+    { icon: Instagram, href: 'https://instagram.com/multimedium.dev', label: 'Instagram' },
   ]
 
   const contactInfo = [
@@ -69,11 +69,25 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Navigation links */}
         <div className="mt-8 pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
+              <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">Home</a>
+              <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</a>
+              <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</a>
+              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
+              <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">Testimonials</a>
+              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-6 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Multimedium. All rights reserved.
+              © {new Date().getFullYear()} Haydn Watkins. Designed & built by Haydn Watkins.
             </p>
             <div className="flex items-center space-x-1 text-sm text-muted-foreground">
               <span>Visit us at</span>
