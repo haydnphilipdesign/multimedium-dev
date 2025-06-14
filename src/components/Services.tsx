@@ -103,9 +103,6 @@ const Services: React.FC = () => {
                 <CardDescription className="text-sm leading-relaxed">
                   {service.description}
                 </CardDescription>
-                
-                {/* Decorative element */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
               </CardHeader>
 
               <CardContent className="relative">
