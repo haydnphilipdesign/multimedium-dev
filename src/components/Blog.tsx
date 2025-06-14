@@ -38,6 +38,7 @@ interface BlogPost {
 const Blog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
 
   const blogPosts: BlogPost[] = [
     {
@@ -1018,7 +1019,12 @@ Remember: it's much cheaper to prevent a security breach than to recover from on
                         </span>
                       ))}
                     </div>
-                    <Button variant="ghost" size="sm" className="group-hover:bg-primary group-hover:text-white">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="group-hover:bg-primary group-hover:text-white"
+                      onClick={() => setSelectedPost(post)}
+                    >
                       <ArrowRight className="h-4 w-4" />
                     </Button>
                   </div>
@@ -1092,7 +1098,12 @@ Remember: it's much cheaper to prevent a security breach than to recover from on
                     </span>
                   ))}
                 </div>
-                <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary"
+                  onClick={() => setSelectedPost(post)}
+                >
                   Read Article
                   <ArrowRight className="h-3 w-3 ml-2" />
                 </Button>
@@ -1101,6 +1112,64 @@ Remember: it's much cheaper to prevent a security breach than to recover from on
           ))}
         </div>
       </div>
+
+      {/* Blog Post Modal */}
+      {selectedPost && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+            {/* Header */}
+            <div className="p-6 border-b flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold">{selectedPost.title}</h2>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    {new Date(selectedPost.publishDate).toLocaleDateString()}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    {selectedPost.readTime}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <User className="h-4 w-4" />
+                    Haydn Watkins
+                  </div>
+                </div>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setSelectedPost(null)}
+              >
+                ✕
+              </Button>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto p-6">
+              <div className="prose prose-lg max-w-none">
+                {selectedPost.content.split('\n').map((paragraph, index) => {
+                  if (paragraph.startsWith('# ')) {
+                    return <h1 key={index} className="text-3xl font-bold mt-8 mb-4">{paragraph.substring(2)}</h1>
+                  } else if (paragraph.startsWith('## ')) {
+                    return <h2 key={index} className="text-2xl font-bold mt-6 mb-3">{paragraph.substring(3)}</h2>
+                  } else if (paragraph.startsWith('### ')) {
+                    return <h3 key={index} className="text-xl font-bold mt-4 mb-2">{paragraph.substring(4)}</h3>
+                  } else if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                    return <p key={index} className="font-bold mt-4 mb-2">{paragraph.slice(2, -2)}</p>
+                  } else if (paragraph.startsWith('- ')) {
+                    return <li key={index} className="ml-4">{paragraph.substring(2)}</li>
+                  } else if (paragraph.trim() === '') {
+                    return <br key={index} />
+                  } else {
+                    return <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>
+                  }
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

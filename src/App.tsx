@@ -7,10 +7,8 @@ import Pricing from './components/Pricing'
 import LeadMagnets from './components/LeadMagnets'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import SocialProofNotifications from './components/SocialProofNotifications'
 import AdvancedAnalyticsProvider from './components/AdvancedAnalytics'
 import SEOContent from './components/SEOContent'
-import LocalSEO from './components/LocalSEO'
 import GoogleMyBusinessOptimization from './components/GoogleMyBusinessOptimization'
 import Blog from './components/Blog'
 
@@ -48,12 +46,8 @@ function App() {
         <LeadMagnets />
         <SEOContent />
         <Blog />
-        <LocalSEO />
         <Contact />
       </main>
-      
-      {/* Social proof notifications */}
-      <SocialProofNotifications />
       
       {/* Footer with social links and contact info */}
       <Footer />
