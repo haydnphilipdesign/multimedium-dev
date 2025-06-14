@@ -58,8 +58,7 @@ const Hero: React.FC = () => {
             {/* Honest value proposition */}
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in animation-delay-400 leading-relaxed">
               Pennsylvania-based web developer specializing in custom solutions for growing businesses. 
-              I focus on building 
-              <span className="font-semibold text-foreground">high-quality, results-driven websites</span> that help your business succeed.
+              I focus on building <span className="font-semibold text-foreground">high-quality, results-driven websites</span> that help your business succeed.
             </p>
 
             {/* Honest social proof */}
@@ -150,15 +149,15 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <div className="w-8 h-8 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded flex items-center justify-center">
-                <span className="text-xs font-bold text-green-600">BH</span>
+                <span className="text-xs font-bold text-green-600">BE</span>
               </div>
-              Be Healing Acres
+              Blissful Existence Healing Acres
             </div>
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded flex items-center justify-center">
                 <span className="text-xs font-bold text-purple-600">FC</span>
               </div>
-              Falls Community
+              The Falls Community Association
             </div>
           </div>
         </div>

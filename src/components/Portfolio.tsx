@@ -32,7 +32,7 @@ const Portfolio: React.FC = () => {
     },
     {
       id: 2,
-      title: "Be Healing Acres",
+      title: "Blissful Existence Healing Acres",
       description: "Holistic healing and wellness website emphasizing inviting visuals and clarity. Features service information, appointment booking, and wellness resources.",
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop&q=80",
       technologies: ["WordPress", "Custom Design", "Booking System", "SEO"],
@@ -43,7 +43,7 @@ const Portfolio: React.FC = () => {
     },
     {
       id: 3,
-      title: "Falls Community HOA",
+      title: "The Falls Community Association",
       description: "HOA/community association website focused on organization and easy updates. Resident portal, document management, and community announcements.",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&q=80",
       technologies: ["React", "Content Management", "Document Portal", "Responsive Design"],
