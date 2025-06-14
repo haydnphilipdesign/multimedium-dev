@@ -1,4 +1,5 @@
-import { ExternalLink, ArrowUpRight, Star, TrendingUp } from 'lucide-react'
+import React from 'react'
+import { ExternalLink, ArrowUpRight, Star, TrendingUp, X } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
@@ -12,6 +13,9 @@ import { Button } from '@/components/ui/button'
  * - Placeholder content for demonstration
  */
 const Portfolio: React.FC = () => {
+  // State for lightbox modal
+  const [selectedProject, setSelectedProject] = React.useState<any>(null)
+
   // Real portfolio projects for Haydn Watkins / Multimedium
   const projects = [
     {
@@ -46,17 +50,6 @@ const Portfolio: React.FC = () => {
       githubUrl: "#",
       featured: true,
       impact: "Improved communication by 200%"
-    },
-    {
-      id: 4,
-      title: "Modern E-commerce Platform",
-      description: "Full-featured e-commerce solution with inventory management, payment processing, and mobile-optimized checkout experience for local business.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&q=80",
-      technologies: ["Shopify", "Custom Theme", "Payment Integration", "Mobile First"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false,
-      impact: "Boosted online sales by 300%"
     }
   ]
 
@@ -84,6 +77,7 @@ const Portfolio: React.FC = () => {
             <Card 
               key={project.id} 
               className={`group hover-lift cursor-pointer relative overflow-hidden bg-card/50 backdrop-blur-sm border-2 border-transparent hover:border-primary/20 animate-fade-in animation-delay-${index * 100 + 400}`}
+              onClick={() => setSelectedProject(project)}
             >
               {/* Project image with enhanced effects */}
               <div className="relative overflow-hidden">
@@ -207,6 +201,65 @@ const Portfolio: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedProject && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div 
+            className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b">
+              <div>
+                <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
+                <p className="text-muted-foreground">{selectedProject.description}</p>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setSelectedProject(null)}
+                className="ml-4"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            
+            {/* Iframe */}
+            <div className="relative" style={{ height: '70vh' }}>
+              <iframe
+                src={selectedProject.liveUrl}
+                className="w-full h-full border-0"
+                title={selectedProject.title}
+                loading="lazy"
+              />
+            </div>
+            
+            {/* Modal Footer */}
+            <div className="p-6 border-t bg-gray-50 flex items-center justify-between">
+              <div className="flex flex-wrap gap-2">
+                {selectedProject.technologies.map((tech: string) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <Button asChild>
+                <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Visit Site
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

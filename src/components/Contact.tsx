@@ -36,21 +36,35 @@ const Contact: React.FC = () => {
   } = useForm<ContactFormData>()
 
   // Handle form submission
-  const onSubmit = async (_data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     
-    // Simulate form submission - replace with actual API call
     try {
-      // Here you would typically send the data to your backend
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-      
-      // Simulate delay
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      setIsSubmitted(true)
-      reset()
+      // Submit to Formspree
+      const response = await fetch('https://formspree.io/f/xqkadbwg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+          _replyto: data.email,
+        }),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        reset()
+      } else {
+        throw new Error('Form submission failed')
+      }
     } catch (error) {
-      // Handle error state
+      console.error('Form submission error:', error)
+      // You could set an error state here if needed
+      alert('There was an error submitting the form. Please try again or contact me directly at haydn@multimedium.dev')
     } finally {
       setIsSubmitting(false)
     }

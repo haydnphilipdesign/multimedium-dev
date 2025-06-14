@@ -121,8 +121,33 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
+        {/* Client Trust Section */}
+        <div className="text-center mt-16 animate-fade-in animation-delay-900">
+          <p className="text-sm text-muted-foreground mb-6">Trusted by Pennsylvania businesses and beyond</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 opacity-60 hover:opacity-80 transition-opacity">
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded flex items-center justify-center">
+                <span className="text-xs font-bold text-blue-600">RE</span>
+              </div>
+              PA Real Estate Support
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <div className="w-8 h-8 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded flex items-center justify-center">
+                <span className="text-xs font-bold text-green-600">BH</span>
+              </div>
+              Be Healing Acres
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded flex items-center justify-center">
+                <span className="text-xs font-bold text-purple-600">FC</span>
+              </div>
+              Falls Community
+            </div>
+          </div>
+        </div>
+
         {/* Animated scroll indicator */}
-        <div className="text-center mt-16 animate-bounce animation-delay-800">
+        <div className="text-center mt-12 animate-bounce animation-delay-1000">
           <button
             onClick={scrollToPortfolio}
             className="text-muted-foreground hover:text-primary transition-all duration-300 group"
