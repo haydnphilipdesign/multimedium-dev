@@ -13,7 +13,7 @@ const GoogleMyBusinessOptimization: React.FC = () => {
     gmbScript.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "Multimedium Enterprise Web Design",
+      "name": "Multimedium Web Development",
       "image": [
         "https://multimedium.dev/og-image.jpg",
         "https://multimedium.dev/logo.png"
@@ -21,7 +21,7 @@ const GoogleMyBusinessOptimization: React.FC = () => {
       "@id": "https://multimedium.dev",
       "url": "https://multimedium.dev",
       "telephone": "+1-570-994-6186",
-      "priceRange": "$50,000-$500,000",
+      "priceRange": "$5,000-$25,000",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Pennsylvania",
@@ -75,38 +75,10 @@ const GoogleMyBusinessOptimization: React.FC = () => {
           },
           "author": {
             "@type": "Person",
-            "name": "Sarah Chen, CTO"
+            "name": "Deborah O'Brien"
           },
-          "reviewBody": "Multimedium delivered a $2.3M cost savings transformation for our Fortune 500 company. Exceptional enterprise web development expertise.",
-          "datePublished": "2024-01-10"
-        },
-        {
-          "@type": "Review", 
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "Michael Rodriguez, VP Digital"
-          },
-          "reviewBody": "Outstanding enterprise platform development. 400% ROI in first year. Highly recommend for serious digital transformation projects.",
-          "datePublished": "2024-01-08"
-        },
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating", 
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "Jennifer Adams, CEO"
-          },
-          "reviewBody": "Haydn architected our entire digital ecosystem. $12M revenue increase and industry recognition. True enterprise partnership.",
-          "datePublished": "2024-01-05"
+          "reviewBody": "Haydn took our outdated website and turned it into a modern, easy-to-use showcase for our business. The process was smooth, fast, and exceeded expectations.",
+          "datePublished": "2024-01-01"
         }
       ],
       "hasOfferCatalog": {

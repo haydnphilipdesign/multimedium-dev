@@ -7,8 +7,7 @@ import Pricing from './components/Pricing'
 import LeadMagnets from './components/LeadMagnets'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import AdvancedAnalyticsProvider from './components/AdvancedAnalytics'
-import SEOContent from './components/SEOContent'
+import BasicAnalytics from './components/AdvancedAnalytics'
 import GoogleMyBusinessOptimization from './components/GoogleMyBusinessOptimization'
 import Blog from './components/Blog'
 
@@ -29,8 +28,8 @@ import Blog from './components/Blog'
 function App() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Advanced Analytics & SEO */}
-      <AdvancedAnalyticsProvider />
+      {/* Basic Analytics & SEO */}
+      <BasicAnalytics />
       <GoogleMyBusinessOptimization />
       
       {/* Fixed header with navigation */}
@@ -44,7 +43,6 @@ function App() {
         <Pricing />
         <About />
         <LeadMagnets />
-        <SEOContent />
         <Blog />
         <Contact />
       </main>

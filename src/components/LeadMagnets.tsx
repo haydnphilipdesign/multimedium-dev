@@ -19,10 +19,10 @@ const LeadMagnets: React.FC = () => {
   const leadMagnets = [
     {
       id: 'website-audit',
-      title: 'Free $2,500 Website Audit',
+      title: 'Free Website Audit',
       subtitle: '15-Point Professional Analysis',
-      description: 'Get a comprehensive audit of your current website with actionable recommendations to increase conversions by 300%+',
-      value: '$2,500 Value',
+      description: 'Get a comprehensive audit of your current website with actionable recommendations to improve performance',
+      value: 'Free Analysis',
       icon: <FileText className="h-8 w-8" />,
       gradient: 'from-blue-500/10 to-blue-600/10',
       textColor: 'text-blue-600',

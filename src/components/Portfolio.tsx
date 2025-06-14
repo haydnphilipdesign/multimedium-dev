@@ -27,7 +27,7 @@ const Portfolio: React.FC = () => {
       liveUrl: "https://parealestatesupport.com",
       githubUrl: "#",
       featured: true,
-      impact: "Reduced processing time by 70%"
+      impact: "Streamlined workflow management"
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ const Portfolio: React.FC = () => {
       liveUrl: "https://behealingacres.com",
       githubUrl: "#",
       featured: true,
-      impact: "Increased bookings by 150%"
+      impact: "Enhanced online presence"
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ const Portfolio: React.FC = () => {
       liveUrl: "https://falls.multimedium.dev",
       githubUrl: "#",
       featured: true,
-      impact: "Improved communication by 200%"
+      impact: "Organized community resources"
     }
   ]
 
