@@ -101,15 +101,32 @@ const Hero: React.FC = () => {
 
           {/* Right side - Professional headshot */}
           <div className="flex-shrink-0 animate-fade-in animation-delay-600">
-            <div className="relative">
+            <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
               {/* Gradient border effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full p-1 animate-glow">
-                <div className="bg-background rounded-full p-2">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full p-1 animate-pulse-slow">
+                <div className="w-full h-full bg-background rounded-full p-2">
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profile-picture-WhzFDMCS0GhdPK8fpi1PmPFDVw9NXd.jpg"
                     alt="Haydn Watkins - Professional Web Designer"
-                    className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover shadow-2xl"
+                    className="w-full h-full rounded-full object-cover shadow-2xl"
+                    loading="eager"
+                    crossOrigin="anonymous"
+                    onLoad={() => console.log('Hero image loaded successfully')}
+                    onError={(e) => {
+                      console.error('Hero image failed to load, showing fallback');
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) {
+                        fallback.classList.remove('hidden');
+                        fallback.classList.add('flex');
+                      }
+                    }}
                   />
+                  {/* Fallback placeholder */}
+                  <div className="hidden w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 items-center justify-center shadow-2xl">
+                    <div className="text-4xl md:text-6xl font-bold text-primary">HW</div>
+                  </div>
                 </div>
               </div>
               
