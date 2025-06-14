@@ -3,9 +3,16 @@ import Hero from './components/Hero'
 import Portfolio from './components/Portfolio'
 import Services from './components/Services'
 import About from './components/About'
-import Testimonials from './components/Testimonials'
+import Pricing from './components/Pricing'
+import LeadMagnets from './components/LeadMagnets'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import SocialProofNotifications from './components/SocialProofNotifications'
+import AdvancedAnalyticsProvider from './components/AdvancedAnalytics'
+import SEOContent from './components/SEOContent'
+import LocalSEO from './components/LocalSEO'
+import GoogleMyBusinessOptimization from './components/GoogleMyBusinessOptimization'
+import Blog from './components/Blog'
 
 /**
  * Main App component for Multimedium.dev portfolio website
@@ -24,6 +31,10 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Advanced Analytics & SEO */}
+      <AdvancedAnalyticsProvider />
+      <GoogleMyBusinessOptimization />
+      
       {/* Fixed header with navigation */}
       <Header />
       
@@ -32,10 +43,17 @@ function App() {
         <Hero />
         <Portfolio />
         <Services />
+        <Pricing />
         <About />
-        <Testimonials />
+        <LeadMagnets />
+        <SEOContent />
+        <Blog />
+        <LocalSEO />
         <Contact />
       </main>
+      
+      {/* Social proof notifications */}
+      <SocialProofNotifications />
       
       {/* Footer with social links and contact info */}
       <Footer />

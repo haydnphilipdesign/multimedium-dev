@@ -1,74 +1,18 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Mail, Phone, MapPin, Send, CheckCircle, Sparkles, MessageSquare, Calendar } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Mail, Phone, MapPin, MessageSquare, Calendar } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import LeadQualificationForm from './LeadQualificationForm'
 
 /**
- * Contact section component with form and contact information
+ * Contact section component with premium lead qualification
  * Features:
- * - React Hook Form for form validation
- * - Contact form with validation
+ * - Multi-step lead qualification form
  * - Contact information display
- * - Success/error states
+ * - Premium positioning
  * - Responsive design
- * - Form submission handling (placeholder)
+ * - High-value prospect filtering
  */
 
-interface ContactFormData {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
-
 const Contact: React.FC = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset
-  } = useForm<ContactFormData>()
-
-  // Handle form submission
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true)
-    
-    try {
-      // Submit to Formspree
-      const response = await fetch('https://formspree.io/f/xqkadbwg', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-          _replyto: data.email,
-        }),
-      })
-
-      if (response.ok) {
-        setIsSubmitted(true)
-        reset()
-      } else {
-        throw new Error('Form submission failed')
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      // You could set an error state here if needed
-      alert('There was an error submitting the form. Please try again or contact me directly at haydn@multimedium.dev')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
 
   // Contact information
   const contactInfo = [
@@ -112,158 +56,10 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Enhanced Contact Form */}
-          <Card className="bg-gradient-to-br from-white to-primary/5 backdrop-blur-sm border border-primary/10 animate-fade-in animation-delay-400">
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg">
-                  <Send className="h-5 w-5 text-primary" />
-                </div>
-                <CardTitle className="text-2xl">Let's Start the Conversation</CardTitle>
-              </div>
-              <CardDescription className="text-base">
-                Ready to transform your business? I typically respond within 4-8 hours and 
-                <span className="font-semibold text-foreground"> I'd love to hear about your project</span>.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {isSubmitted ? (
-                <div className="text-center py-12 animate-fade-in">
-                  <div className="relative mb-6">
-                    <CheckCircle className="h-20 w-20 text-green-500 mx-auto animate-scale-in" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-green-100 rounded-full animate-ping"></div>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 gradient-text">Message Sent Successfully!</h3>
-                  <p className="text-muted-foreground mb-2">
-                    🎉 Awesome! I've received your message and I'm excited to learn about your project.
-                  </p>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    I'll get back to you within 4-8 hours with next steps.
-                  </p>
-                  <Button 
-                    variant="outline" 
-                    className="mt-2 hover-lift"
-                    onClick={() => setIsSubmitted(false)}
-                  >
-                    <Sparkles className="h-4 w-4 mr-2" />
-                    Send Another Message
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  {/* Name field with enhanced styling */}
-                  <div className="group">
-                    <label htmlFor="name" className="block text-sm font-medium mb-2 group-focus-within:text-primary transition-colors">
-                      What should I call you? *
-                    </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Your full name"
-                      {...register('name', { 
-                        required: 'Name is required',
-                        minLength: { value: 2, message: 'Name must be at least 2 characters' }
-                      })}
-                      className={`transition-all duration-300 hover:border-primary/50 focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
-                    />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.name.message}</p>
-                    )}
-                  </div>
-
-                  {/* Email field with enhanced styling */}
-                  <div className="group">
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 group-focus-within:text-primary transition-colors">
-                      Best email to reach you? *
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      {...register('email', { 
-                        required: 'Email is required',
-                        pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: 'Invalid email address'
-                        }
-                      })}
-                      className={`transition-all duration-300 hover:border-primary/50 focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.email.message}</p>
-                    )}
-                  </div>
-
-                  {/* Subject field with enhanced styling */}
-                  <div className="group">
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2 group-focus-within:text-primary transition-colors">
-                      What's this about? *
-                    </label>
-                    <Input
-                      id="subject"
-                      type="text"
-                      placeholder="New website, redesign, consultation..."
-                      {...register('subject', { 
-                        required: 'Subject is required',
-                        minLength: { value: 5, message: 'Subject must be at least 5 characters' }
-                      })}
-                      className={`transition-all duration-300 hover:border-primary/50 focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.subject ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
-                    />
-                    {errors.subject && (
-                      <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.subject.message}</p>
-                    )}
-                  </div>
-
-                  {/* Message field with enhanced styling */}
-                  <div className="group">
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 group-focus-within:text-primary transition-colors">
-                      Tell me about your vision *
-                    </label>
-                    <Textarea
-                      id="message"
-                      rows={5}
-                      placeholder="What's your dream website? Tell me about your business, goals, timeline, budget, and anything else that will help me understand your vision..."
-                      {...register('message', { 
-                        required: 'Message is required',
-                        minLength: { value: 20, message: 'Message must be at least 20 characters' }
-                      })}
-                      className={`transition-all duration-300 hover:border-primary/50 focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
-                    />
-                    {errors.message && (
-                      <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.message.message}</p>
-                    )}
-                  </div>
-
-                  {/* Enhanced Submit button */}
-                  <Button 
-                    type="submit" 
-                    className="w-full btn-magnetic hover-glow bg-gradient-to-r from-primary to-accent text-white font-semibold h-12" 
-                    size="lg"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2" />
-                        Sending Your Message...
-                      </>
-                    ) : (
-                      <>
-                        <Sparkles className="h-4 w-4 mr-2" />
-                        Send My Message
-                      </>
-                    )}
-                  </Button>
-                  
-                  {/* Trust indicator */}
-                  <p className="text-xs text-center text-muted-foreground mt-3">
-                    🔒 Your information is secure and will never be shared
-                  </p>
-                </form>
-              )}
-            </CardContent>
-          </Card>
+          {/* Premium Lead Qualification Form */}
+          <div className="animate-fade-in animation-delay-400">
+            <LeadQualificationForm />
+          </div>
 
           {/* Enhanced Contact Information */}
           <div className="space-y-8 animate-fade-in animation-delay-500">

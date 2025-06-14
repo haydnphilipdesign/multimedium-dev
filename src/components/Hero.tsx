@@ -40,33 +40,33 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
           {/* Left side - Content */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Attention-grabbing badge */}
+            {/* Professional badge */}
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8 animate-fade-in backdrop-blur-sm">
               <Sparkles className="h-4 w-4 text-primary animate-glow" />
-              <span className="text-sm font-medium text-primary">Pennsylvania-based web designer</span>
+              <span className="text-sm font-medium text-primary">Professional Web Developer & Digital Strategist</span>
             </div>
 
-            {/* Powerful headline with gradient text */}
+            {/* Professional headline with gradient text */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in animation-delay-200 leading-tight">
               Hi, I'm <span className="gradient-text">Haydn Watkins</span>
               <br />
-              I Create Websites That
+              I Build <span className="gradient-text">Custom Web</span>
               <br />
-              <span className="gradient-text">Drive Real Results</span>
+              <span className="gradient-text">Solutions</span> That Work
             </h1>
 
-            {/* Compelling subheading */}
+            {/* Honest value proposition */}
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in animation-delay-400 leading-relaxed">
-              Pennsylvania-based web designer focused on clean, modern, results-driven websites. 
-              I don't just build sites—I craft digital experiences that 
-              <span className="font-semibold text-foreground"> turn visitors into loyal customers</span>.
+              Pennsylvania-based web developer specializing in custom solutions for growing businesses. 
+              I focus on building 
+              <span className="font-semibold text-foreground">high-quality, results-driven websites</span> that help your business succeed.
             </p>
 
-            {/* Social proof */}
+            {/* Honest social proof */}
             <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mb-12 animate-fade-in animation-delay-500">
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Users className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-sm">50+ Happy Clients</span>
+                <span className="font-semibold text-sm">Happy Clients</span>
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Award className="h-5 w-5 text-primary" />
@@ -138,7 +138,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Client Trust Section */}
+        {/* Professional Trust Section */}
         <div className="text-center mt-16 animate-fade-in animation-delay-900">
           <p className="text-sm text-muted-foreground mb-6">Trusted by Pennsylvania businesses and beyond</p>
           <div className="flex flex-wrap items-center justify-center gap-8 opacity-60 hover:opacity-80 transition-opacity">

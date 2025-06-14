@@ -15,15 +15,15 @@ const About: React.FC = () => {
   const stats = [
     {
       icon: <Users className="h-8 w-8" />,
-      number: "50+",
-      label: "Happy Clients",
+      number: "Happy",
+      label: "Clients",
       description: "Small businesses and organizations trusting Multimedium"
     },
     {
       icon: <Award className="h-8 w-8" />,
-      number: "100%",
-      label: "Project Success",
-      description: "Every project delivered on time and exceeding expectations"
+      number: "Quality",
+      label: "Focus",
+      description: "Committed to delivering exceptional results"
     },
     {
       icon: <Clock className="h-8 w-8" />,
@@ -39,27 +39,13 @@ const About: React.FC = () => {
     }
   ]
 
-  // Client testimonials
-  const testimonials = [
-    {
-      quote: "Haydn took our outdated website and turned it into a modern, easy-to-use showcase for our business. The process was smooth, fast, and exceeded expectations.",
-      author: "Deborah O'Brien",
-      company: "PA Real Estate Support Services",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b131?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      quote: "Working with Haydn was fantastic. He understood our vision and delivered a website that perfectly represents our brand and converts visitors into clients.",
-      author: "Michael Torres",
-      company: "Local Business Owner",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      quote: "Multimedium delivered exactly what we needed - a professional, responsive website that works flawlessly. Haydn's attention to detail is exceptional.",
-      author: "Sarah Johnson",
-      company: "Creative Professional",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
-    }
-  ]
+  // Client testimonial (real testimonial only)
+  const testimonial = {
+    quote: "Haydn took our outdated website and turned it into a modern, easy-to-use showcase for our business. The process was smooth, fast, and exceeded expectations.",
+    author: "Deborah O'Brien",
+    company: "PA Real Estate Support Services",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b131?w=300&h=300&fit=crop&crop=face"
+  }
 
   return (
     <section id="about" className="section-spacing bg-secondary/20">
@@ -152,60 +138,57 @@ const About: React.FC = () => {
           ))}
         </div>
 
-        {/* Enhanced testimonials section */}
+        {/* Client testimonial section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-2 mb-6 animate-fade-in">
             <Star className="h-4 w-4 text-green-600" />
-            <span className="text-sm font-medium text-green-700">Client Love</span>
+            <span className="text-sm font-medium text-green-700">Client Feedback</span>
           </div>
           <h3 className="heading-md mb-6 animate-fade-in animation-delay-200">
-            Success Stories That <span className="gradient-text">Speak Volumes</span>
+            What Clients <span className="gradient-text">Actually Say</span>
           </h3>
           <p className="body-md text-muted-foreground max-w-2xl mx-auto animate-fade-in animation-delay-300">
-            Real results from real clients. See why businesses choose Multimedium 
-            and <span className="font-semibold text-foreground">never look back</span>.
+            Real feedback from a Pennsylvania business owner who trusted Multimedium with their website.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className={`group hover-lift relative overflow-hidden bg-gradient-to-br from-white to-primary/5 border border-primary/10 animate-fade-in animation-delay-${index * 200 + 400}`}>
-              <CardContent className="p-6">
-                {/* Quote icon */}
-                <Quote className="h-8 w-8 text-primary/30 mb-4" />
-                
-                {/* Star rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
+        <div className="max-w-2xl mx-auto mb-16">
+          <Card className="group hover-lift relative overflow-hidden bg-gradient-to-br from-white to-primary/5 border border-primary/10 animate-fade-in animation-delay-400">
+            <CardContent className="p-8">
+              {/* Quote icon */}
+              <Quote className="h-12 w-12 text-primary/30 mb-6 mx-auto" />
+              
+              {/* Star rating */}
+              <div className="flex gap-1 mb-6 justify-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              
+              {/* Quote */}
+              <div className="mb-8 text-center">
+                <p className="text-lg text-muted-foreground leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+              </div>
+              
+              {/* Author info */}
+              <div className="flex items-center gap-4 justify-center">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.author}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-colors"
+                />
+                <div className="text-left">
+                  <h4 className="font-semibold text-base">{testimonial.author}</h4>
+                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
                 </div>
-                
-                {/* Quote */}
-                <div className="mb-6">
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">
-                    "{testimonial.quote}"
-                  </p>
-                </div>
-                
-                {/* Author info */}
-                <div className="flex items-center gap-3">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-colors"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-sm">{testimonial.author}</h4>
-                    <p className="text-xs text-muted-foreground">{testimonial.company}</p>
-                  </div>
-                </div>
-                
-                {/* Decorative element */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full"></div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+              
+              {/* Decorative element */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full"></div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Approach */}
