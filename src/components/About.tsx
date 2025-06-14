@@ -15,7 +15,7 @@ const About: React.FC = () => {
   const stats = [
     {
       icon: <Users className="h-8 w-8" />,
-      number: "30+",
+      number: "50+",
       label: "Happy Clients",
       description: "Small businesses and organizations trusting Multimedium"
     },

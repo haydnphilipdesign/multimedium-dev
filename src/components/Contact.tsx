@@ -122,7 +122,7 @@ const Contact: React.FC = () => {
                 <CardTitle className="text-2xl">Let's Start the Conversation</CardTitle>
               </div>
               <CardDescription className="text-base">
-                Ready to transform your business? I typically respond within 4 hours and 
+                Ready to transform your business? I typically respond within 4-8 hours and 
                 <span className="font-semibold text-foreground"> I'd love to hear about your project</span>.
               </CardDescription>
             </CardHeader>
@@ -366,7 +366,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="mt-4 p-3 bg-green-100 rounded-lg">
                   <p className="text-xs text-green-700 font-medium">
-                    ⚡ Lightning-fast response: Usually within 4 hours!
+                    ⚡ Lightning-fast response: Usually within 4-8 hours!
                   </p>
                 </div>
               </CardContent>

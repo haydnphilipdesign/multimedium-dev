@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-20">
       {/* Enhanced background effects */}
       <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
       <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-float" />
@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-sm">5+ Years Experience</span>
+                <span className="font-semibold text-sm">7+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Zap className="h-5 w-5 text-primary" />
