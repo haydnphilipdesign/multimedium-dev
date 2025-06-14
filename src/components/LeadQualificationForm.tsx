@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { trackContactFormSubmission } from './AdvancedAnalytics'
 
 /**
  * Multi-step lead qualification form to filter high-value prospects
@@ -115,6 +116,13 @@ const LeadQualificationForm: React.FC = () => {
 
       if (response.ok) {
         setIsSubmitted(true)
+        // Track successful form submission
+        trackContactFormSubmission('lead_qualification')
+        
+        // Track Google Ads conversion
+        if (typeof window !== 'undefined' && (window as any).trackAdWordsConversion) {
+          (window as any).trackAdWordsConversion('QUOTE_REQUEST_CONVERSION_LABEL')
+        }
       } else {
         throw new Error('Submission failed')
       }

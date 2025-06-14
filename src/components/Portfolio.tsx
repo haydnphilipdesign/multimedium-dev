@@ -2,6 +2,7 @@ import React from 'react'
 import { ExternalLink, ArrowUpRight, Star, TrendingUp, X } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { trackPortfolioView } from './AdvancedAnalytics'
 
 /**
  * Portfolio section component showcasing featured work
@@ -113,7 +114,12 @@ const Portfolio: React.FC = () => {
                 {/* Quick action buttons */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 flex gap-3">
                   <Button size="sm" className="btn-magnetic bg-white text-primary hover:bg-primary hover:text-white" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={() => trackPortfolioView(project.title)}
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Live Site
                     </a>

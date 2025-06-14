@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from 'lucide-react'
+import { trackPhoneClick } from './AdvancedAnalytics'
 
 /**
  * Footer component with contact information and social links
@@ -42,6 +43,11 @@ const Footer: React.FC = () => {
                 <a
                   key={index}
                   href={item.href}
+                  onClick={() => {
+                    if (item.href.startsWith('tel:')) {
+                      trackPhoneClick()
+                    }
+                  }}
                   className="flex items-center space-x-3 text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
                   <item.icon className="h-4 w-4 flex-shrink-0" />

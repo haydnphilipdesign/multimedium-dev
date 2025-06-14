@@ -15,6 +15,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { trackBlogRead } from './AdvancedAnalytics'
 
 /**
  * Professional Blog Component for Content Marketing
@@ -1023,7 +1024,10 @@ Remember: it's much cheaper to prevent a security breach than to recover from on
                       variant="ghost" 
                       size="sm" 
                       className="group-hover:bg-primary group-hover:text-white"
-                      onClick={() => setSelectedPost(post)}
+                      onClick={() => {
+                        setSelectedPost(post)
+                        trackBlogRead(post.title)
+                      }}
                     >
                       <ArrowRight className="h-4 w-4" />
                     </Button>
@@ -1102,7 +1106,10 @@ Remember: it's much cheaper to prevent a security breach than to recover from on
                   variant="outline" 
                   size="sm" 
                   className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary"
-                  onClick={() => setSelectedPost(post)}
+                  onClick={() => {
+                    setSelectedPost(post)
+                    trackBlogRead(post.title)
+                  }}
                 >
                   Read Article
                   <ArrowRight className="h-3 w-3 ml-2" />

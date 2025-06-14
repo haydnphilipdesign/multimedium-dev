@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, MessageSquare, Calendar } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import LeadQualificationForm from './LeadQualificationForm'
+import { trackPhoneClick } from './AdvancedAnalytics'
 
 /**
  * Contact section component with premium lead qualification
@@ -85,6 +86,11 @@ const Contact: React.FC = () => {
                         {info.href && info.href !== '#' ? (
                           <a 
                             href={info.href}
+                            onClick={() => {
+                              if (info.href.startsWith('tel:')) {
+                                trackPhoneClick()
+                              }
+                            }}
                             className="font-semibold hover:text-primary transition-colors text-base"
                           >
                             {info.value}

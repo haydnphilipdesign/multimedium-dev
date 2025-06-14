@@ -202,6 +202,24 @@
       ]
     }
     </script>
+    
+    <!-- Google Ads Conversion Tracking -->
+    <script>
+      // Google Ads conversion tracking - replace AW-XXXXXXXXX with your conversion ID
+      window.gtag = window.gtag || function(){(window.dataLayer=window.dataLayer||[]).push(arguments);};
+      
+      // Function to track conversions
+      function trackAdWordsConversion(conversionLabel) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXXXX/' + conversionLabel
+          });
+        }
+      }
+      
+      // Make available globally for form submissions
+      window.trackAdWordsConversion = trackAdWordsConversion;
+    </script>
   </head>
   <body>
     <div id="root"></div>
