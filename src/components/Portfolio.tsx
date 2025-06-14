@@ -18,19 +18,13 @@ const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = React.useState<any>(null)
 
   // Real portfolio projects for Haydn Watkins / Multimedium
-  // 
-  // 🚀 TO UPDATE WITH REAL SCREENSHOTS:
-  // 1. Take screenshots of live websites (see PORTFOLIO_SCREENSHOTS_GUIDE.md)
-  // 2. Save as: /public/portfolio/[project-name].webp
-  // 3. Replace image URLs below with: "/portfolio/[project-name].webp"
-  // 
+  // Using actual website screenshots from /public/portfolio/
   const projects = [
     {
       id: 1,
       title: "PA Real Estate Support",
       description: "Real estate transaction coordinator platform focused on workflow automation and usability. Custom intake forms and client management system streamline operations for agents.",
-      // TODO: Replace with actual screenshot: "/portfolio/pa-real-estate-support.webp"
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&q=80",
+      image: "/portfolio/pa-real-estate.webp",
       technologies: ["React", "Airtable", "Custom Forms", "Workflow Automation"],
       liveUrl: "https://parealestatesupport.com",
       githubUrl: "#",
@@ -41,8 +35,7 @@ const Portfolio: React.FC = () => {
       id: 2,
       title: "Blissful Existence Healing Acres",
       description: "Holistic healing and wellness website emphasizing inviting visuals and clarity. Features service information, appointment booking, and wellness resources.",
-      // TODO: Replace with actual screenshot: "/portfolio/blissful-existence-healing-acres.webp"
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop&q=80",
+      image: "/portfolio/blissful-existence.webp",
       technologies: ["WordPress", "Custom Design", "Booking System", "SEO"],
       liveUrl: "https://behealingacres.com",
       githubUrl: "#",
@@ -53,8 +46,7 @@ const Portfolio: React.FC = () => {
       id: 3,
       title: "The Falls Community Association",
       description: "HOA/community association website focused on organization and easy updates. Resident portal, document management, and community announcements.",
-      // TODO: Replace with actual screenshot: "/portfolio/falls-community-association.webp"
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&q=80",
+      image: "/portfolio/falls_community.webp",
       technologies: ["React", "Content Management", "Document Portal", "Responsive Design"],
       liveUrl: "https://falls.multimedium.dev",
       githubUrl: "#",
