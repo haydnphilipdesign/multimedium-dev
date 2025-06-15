@@ -133,24 +133,29 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-start">
           {packages.map((pkg, index) => (
             <Card 
               key={pkg.id}
-              className={`relative overflow-hidden hover-lift ${pkg.popular ? 'border-2 border-primary shadow-xl scale-105' : 'border'} animate-fade-in animation-delay-${index * 100 + 500}`}
+              className={`relative overflow-hidden hover-lift h-full flex flex-col ${pkg.popular ? 'border-2 border-primary shadow-xl scale-105' : 'border'} animate-fade-in animation-delay-${index * 100 + 500}`}
             >
               {pkg.popular && (
                 <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-primary to-accent text-white text-center py-2 text-sm font-semibold">
-                  🔥 Most Popular - 78% Choose This
+                  ⭐ Most Popular Choice
                 </div>
               )}
-
-              <CardHeader className={`text-center ${pkg.popular ? 'pt-12' : 'pt-6'}`}>
-                <div className={`mx-auto mb-4 p-3 bg-gradient-to-br ${pkg.gradient} rounded-xl ${pkg.textColor} w-fit`}>
-                  {pkg.icon}
+              
+              <CardHeader className={`bg-gradient-to-br ${pkg.gradient} ${pkg.popular ? 'pt-12' : 'pt-6'} flex-shrink-0`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className={`inline-flex items-center gap-2 ${pkg.textColor}`}>
+                    {pkg.icon}
+                    <CardTitle className="text-xl">{pkg.name}</CardTitle>
+                  </div>
                 </div>
-                <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                <CardDescription className="text-base mb-4">{pkg.subtitle}</CardDescription>
+                
+                <CardDescription className="text-base font-medium text-muted-foreground mb-4">
+                  {pkg.subtitle}
+                </CardDescription>
                 
                 <div className="mb-4">
                   <div className="text-4xl font-bold gradient-text mb-1">
@@ -169,8 +174,8 @@ const Pricing: React.FC = () => {
                 </p>
               </CardHeader>
 
-              <CardContent className="space-y-4">
-                <ul className="space-y-3">
+              <CardContent className="space-y-4 flex-grow flex flex-col">
+                <ul className="space-y-3 flex-grow">
                   {pkg.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3 text-sm">
                       <Check className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
@@ -179,7 +184,7 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
 
-                <div className="space-y-3 pt-4">
+                <div className="space-y-3 pt-4 mt-auto">
                   <Button 
                     className={`w-full ${pkg.popular ? 'bg-gradient-to-r from-primary to-accent text-white hover-glow' : 'bg-primary text-white hover:bg-primary/90'}`}
                     onClick={handleBookCall}
