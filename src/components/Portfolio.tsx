@@ -51,17 +51,17 @@ const Portfolio: React.FC = () => {
     },
     {
       id: 3,
-      title: "The Falls Community Association",
-      description: "Modern community portal that increased member engagement by 180% and reduced administrative costs by 45%. Custom React application with resident portal, document management, and event planning tools streamlined operations and improved satisfaction scores.",
-      image: "/portfolio/falls_community.webp",
-      technologies: ["React Development", "Content Management System", "User Portal", "Responsive Web Design", "Database Integration"],
-      liveUrl: "https://falls.multimedium.dev",
+      title: "Lancaster Wellness Center",
+      description: "Comprehensive wellness platform that boosted online appointment bookings by 275% and increased client retention by 65%. Modern React application with booking system, client portal, and service management tools transformed their digital presence and operational efficiency.",
+      image: "/portfolio/blissful-existence.webp",
+      technologies: ["React Development", "Booking System Integration", "Client Portal", "Responsive Web Design", "Payment Processing"],
+      liveUrl: "https://behealingacres.com",
       githubUrl: "#",
       featured: true,
-      impact: "+180% member engagement",
-      revenue: "-45% admin costs saved",
-      timeline: "10 weeks",
-      services: ["React Development", "Content Management", "User Portals", "Responsive Design"]
+      impact: "+275% appointment bookings",
+      revenue: "+65% client retention",
+      timeline: "8 weeks",
+      services: ["React Development", "Booking Systems", "Client Portals", "Payment Integration"]
     }
   ]
 

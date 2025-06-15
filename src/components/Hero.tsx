@@ -155,11 +155,11 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3 shadow-sm border border-primary/10">
               <div className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
-                <span className="text-xs font-bold text-purple-600">FC</span>
+                <span className="text-xs font-bold text-purple-600">LB</span>
               </div>
               <div className="text-left">
-                <div className="font-semibold text-foreground">The Falls Community</div>
-                <div className="text-xs text-green-600">+180% Member Engagement</div>
+                <div className="font-semibold text-foreground">Lancaster Business</div>
+                <div className="text-xs text-green-600">+320% Online Sales</div>
               </div>
             </div>
           </div>

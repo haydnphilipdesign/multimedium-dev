@@ -52,8 +52,7 @@ export const debugAllImages = async () => {
   const expectedImages = [
     '/multimedium-logo.png',
     '/portfolio/pa-real-estate.webp',
-    '/portfolio/blissful-existence.webp', 
-    '/portfolio/falls_community.webp',
+    '/portfolio/blissful-existence.webp',
     '/profile-picture.jpg',
     '/logo.svg',
     '/logo-dark.svg'

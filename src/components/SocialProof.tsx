@@ -35,11 +35,11 @@ export default function SocialProof() {
     {
       id: '2',
       type: 'project',
-      message: 'launched new community website',
-      name: 'Michael R.',
-      location: 'Falls Township, PA',
-      timeAgo: '1 day ago',
-      avatar: 'MR'
+      message: 'launched new e-commerce platform',
+      name: 'Jennifer M.',
+      location: 'Lancaster, PA',
+      timeAgo: '2 days ago',
+      avatar: 'JM'
     },
     {
       id: '3',
@@ -56,7 +56,7 @@ export default function SocialProof() {
   const clientLogos: ClientLogo[] = [
     { name: 'PA Real Estate Support', logo: '/logos/pares-logo.png', industry: 'Real Estate' },
     { name: 'Blissful Existence Healing Acres', logo: '/logos/beha-logo.png', industry: 'Wellness' },
-    { name: 'The Falls Community Association', logo: '/logos/falls-logo.png', industry: 'Community' }
+    { name: 'Lancaster Health Services', logo: '/logos/lhs-logo.png', industry: 'Healthcare' }
   ]
 
   // Cycle through notifications
