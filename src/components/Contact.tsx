@@ -1,6 +1,5 @@
 import { Mail, Phone, MapPin, MessageSquare, Calendar } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
-import SimpleContactForm from './SimpleContactForm'
 import { trackPhoneClick } from './AdvancedAnalytics'
 
 /**
@@ -59,7 +58,64 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Simple Contact Form */}
           <div className="animate-fade-in animation-delay-400">
-            <SimpleContactForm />
+            <Card className="bg-white/80 backdrop-blur-sm border border-primary/20">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6">Get Your Free Website Audit</h3>
+                <form className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Name *</label>
+                    <input 
+                      type="text" 
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <input 
+                      type="email" 
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Phone</label>
+                    <input 
+                      type="tel" 
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                      placeholder="(570) 555-0123"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Website URL</label>
+                    <input 
+                      type="url" 
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                      placeholder="https://yourwebsite.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Tell me about your business goals</label>
+                    <textarea 
+                      rows={4}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                      placeholder="What are you hoping to achieve with your website?"
+                    />
+                  </div>
+                  <button 
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300"
+                  >
+                    Get My Free Audit ($497 Value)
+                  </button>
+                  <p className="text-xs text-center text-gray-600">
+                    🔒 Your information is secure. I'll personally review your website within 24 hours.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Enhanced Contact Information */}

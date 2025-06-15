@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
             {/* Phone number prominently displayed */}
             <div className="inline-flex items-center gap-3 bg-primary text-white rounded-full px-6 py-3 mb-6 animate-fade-in animation-delay-100 hover:bg-primary/90 transition-colors cursor-pointer">
               <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="font-bold text-lg">📞 (717) 555-0123</span>
+              <span className="font-bold text-lg">📞 (570) 994-6186</span>
               <span className="text-sm opacity-90">Call Now - Available Today</span>
             </div>
 

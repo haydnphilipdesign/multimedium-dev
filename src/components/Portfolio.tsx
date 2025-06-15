@@ -193,17 +193,10 @@ const Portfolio: React.FC = () => {
           ))}
         </div>
 
-        {/* Enhanced call-to-action with urgency */}
+        {/* Enhanced call-to-action */}
         <div className="text-center mt-20 animate-fade-in animation-delay-800">
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/10 backdrop-blur-sm relative overflow-hidden">
-            {/* Urgency banner */}
-            <div className="absolute top-0 left-0 right-0 bg-red-600 text-white py-2 px-4">
-              <div className="text-center">
-                <span className="text-sm font-bold animate-pulse">⚡ LIMITED: Only 3 spots left for Q3 2025 • Next available: July 15th</span>
-              </div>
-            </div>
-            
-            <div className="mt-8">
+          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/10 backdrop-blur-sm">
+            <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Ready to <span className="gradient-text">Transform</span> Your Business?
               </h3>
@@ -212,27 +205,14 @@ const Portfolio: React.FC = () => {
                 <span className="font-semibold text-foreground"> Your $850K revenue boost is just one conversation away</span>.
               </p>
               
-              {/* Social proof mini */}
-              <div className="flex justify-center items-center gap-4 mb-8 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-1">
-                    <div className="w-6 h-6 bg-primary rounded-full border-2 border-white"></div>
-                    <div className="w-6 h-6 bg-accent rounded-full border-2 border-white"></div>
-                    <div className="w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
-                  </div>
-                  <span>50+ Happy Clients</span>
-                </div>
-                <div className="text-yellow-500">★★★★★</div>
-                <span>5.0 Google Rating</span>
-              </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
                   size="lg"
-                  onClick={() => window.location.href = 'tel:+17175550123'}
+                  onClick={() => window.location.href = 'tel:+15709946186'}
                   className="min-w-56 text-base h-14 btn-magnetic hover-glow bg-gradient-to-r from-green-600 to-green-700 text-white font-bold shadow-lg"
                 >
-                  📞 Call Now: (717) 555-0123
+                  📞 Call Now: (570) 994-6186
                 </Button>
                 
                 <Button 

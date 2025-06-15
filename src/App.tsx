@@ -13,8 +13,6 @@ import { CriticalCSS, ResourcePreloader, PerformanceDashboard } from './componen
 import StickyContactButton from './components/StickyContactButton'
 import ExitIntentPopup, { useExitIntent } from './components/ExitIntentPopup'
 import LiveChatWidget from './components/LiveChatWidget'
-import ClientWinsTicker from './components/ClientWinsTicker'
-import GoogleReviews from './components/GoogleReviews'
 import './utils/imageDebug' // Load image debugging utilities
 
 /**
@@ -45,7 +43,6 @@ function App() {
       <GoogleMyBusinessOptimization />
       
       {/* Lead generation widgets */}
-      <ClientWinsTicker />
       <StickyContactButton />
       <LiveChatWidget />
       
@@ -60,7 +57,6 @@ function App() {
         <Hero />
         <SocialProof />
         <Portfolio />
-        <GoogleReviews />
         <Pricing />
         <FAQ />
         <CalendarBooking />

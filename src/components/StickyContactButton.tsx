@@ -17,7 +17,7 @@ const StickyContactButton: React.FC = () => {
   }, [])
 
   const handleCall = () => {
-    window.location.href = 'tel:+17175550123'
+    window.location.href = 'tel:+15709946186'
   }
 
   const handleContact = () => {
@@ -52,7 +52,7 @@ const StickyContactButton: React.FC = () => {
               className="w-full bg-green-600 hover:bg-green-700 text-white flex items-center gap-2"
             >
               <Phone className="h-4 w-4" />
-              Call (717) 555-0123
+              Call (570) 994-6186
             </Button>
             
             <Button

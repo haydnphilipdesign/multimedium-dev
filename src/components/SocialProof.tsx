@@ -174,27 +174,27 @@ export default function SocialProof() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
             <div>
               <div className="text-2xl md:text-3xl font-bold mb-1">
-                <CountUpNumber target={15} />
+                <CountUpNumber target={50} />+
               </div>
               <div className="text-sm opacity-90">Happy Clients</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold mb-1">
-                $<CountUpNumber target={75} />K+
+                $<CountUpNumber target={2} />M+
               </div>
-              <div className="text-sm opacity-90">Revenue Generated</div>
+              <div className="text-sm opacity-90">Client Revenue Generated</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold mb-1">
-                <CountUpNumber target={3} />
+                <CountUpNumber target={300} />%
               </div>
-              <div className="text-sm opacity-90">Active Projects</div>
+              <div className="text-sm opacity-90">Average ROI Increase</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold mb-1">
-                4.9/<CountUpNumber target={5} />
+                5.0/<CountUpNumber target={5} />
               </div>
-              <div className="text-sm opacity-90">Client Rating</div>
+              <div className="text-sm opacity-90">Google Rating</div>
             </div>
           </div>
         </div>
