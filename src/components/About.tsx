@@ -104,8 +104,8 @@ const About: React.FC = () => {
           <div className="relative animate-fade-in animation-delay-500">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur opacity-30"></div>
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profile-picture-WhzFDMCS0GhdPK8fpi1PmPFDVw9NXd.jpg"
-              alt="Haydn Watkins - Professional Web Designer"
+              src="/profile-picture.jpg"
+              alt="Haydn Watkins - Professional Web Developer"
               className="relative rounded-xl shadow-2xl w-full h-80 object-cover hover-lift"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent rounded-xl" />
