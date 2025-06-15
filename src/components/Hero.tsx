@@ -105,20 +105,25 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full p-1 animate-pulse-slow">
                 <div className="w-full h-full bg-background rounded-full p-2">
                   <img
-                    src="/portfolio/profile-picture.jpg"
+                    src="/profile-picture.jpg"
                     alt="Haydn Watkins - Professional Web Designer"
                     className="w-full h-full rounded-full object-cover shadow-2xl"
                     loading="eager"
-                    crossOrigin="anonymous"
                     onLoad={() => console.log('Hero image loaded successfully')}
                     onError={(e) => {
-                      console.error('Hero image failed to load, showing fallback');
+                      console.error('Hero image failed to load, trying fallback');
                       const target = e.currentTarget as HTMLImageElement;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) {
-                        fallback.classList.remove('hidden');
-                        fallback.classList.add('flex');
+                      // Try alternative path first
+                      if (target.src.includes('/profile-picture.jpg')) {
+                        target.src = '/portfolio/profile-picture.jpg';
+                      } else {
+                        // If that fails too, show fallback
+                        target.style.display = 'none';
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (fallback) {
+                          fallback.classList.remove('hidden');
+                          fallback.classList.add('flex');
+                        }
                       }
                     }}
                   />

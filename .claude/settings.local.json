@@ -23,7 +23,8 @@
       "Bash(rg:*)",
       "WebFetch(domain:parealestatesupport.com)",
       "WebFetch(domain:behealingacres.com)",
-      "WebFetch(domain:falls.multimedium.dev)"
+      "WebFetch(domain:falls.multimedium.dev)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
