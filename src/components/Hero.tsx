@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full p-1 animate-pulse-slow">
                 <div className="w-full h-full bg-background rounded-full p-2">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profile-picture-WhzFDMCS0GhdPK8fpi1PmPFDVw9NXd.jpg"
+                    src="/profile-picture.jpg"
                     alt="Haydn Watkins - Professional Web Designer"
                     className="w-full h-full rounded-full object-cover shadow-2xl"
                     loading="eager"
