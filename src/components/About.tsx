@@ -1,5 +1,6 @@
 import { Users, Award, Clock, Heart, Quote, Star, Sparkles } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import RobustImage from './RobustImage'
 
 /**
  * About section component introducing the company
@@ -172,10 +173,11 @@ const About: React.FC = () => {
               
               {/* Author info */}
               <div className="flex items-center gap-4 justify-center">
-                <img
+                <RobustImage
                   src={testimonial.image}
                   alt={testimonial.author}
                   className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-colors"
+                  fallbackSrc="/profile-picture.jpg"
                 />
                 <div className="text-left">
                   <h4 className="font-semibold text-base">{testimonial.author}</h4>

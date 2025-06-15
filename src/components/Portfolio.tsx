@@ -3,6 +3,7 @@ import { ExternalLink, ArrowUpRight, Star, TrendingUp, X } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { trackPortfolioView } from './AdvancedAnalytics'
+import RobustImage from './RobustImage'
 
 /**
  * Portfolio section component showcasing featured work
@@ -92,10 +93,12 @@ const Portfolio: React.FC = () => {
             >
               {/* Project image with enhanced effects */}
               <div className="relative overflow-hidden">
-                <img
+                <RobustImage
                   src={project.image}
                   alt={project.title}
                   className="w-full h-52 object-cover transition-all duration-500 group-hover:scale-110"
+                  fallbackSrc={project.image.replace('.webp', '.jpg')}
+                  placeholder="Loading project image..."
                 />
                 
                 {/* Featured badge */}

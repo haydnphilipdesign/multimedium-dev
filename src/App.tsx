@@ -10,6 +10,7 @@ import GoogleAnalytics from './components/AdvancedAnalytics'
 import GoogleMyBusinessOptimization from './components/GoogleMyBusinessOptimization'
 import SocialProof from './components/SocialProof'
 import { CriticalCSS, ResourcePreloader, PerformanceDashboard } from './components/SpeedOptimization'
+import './utils/imageDebug' // Load image debugging utilities
 
 /**
  * Main App component for Multimedium.dev portfolio website

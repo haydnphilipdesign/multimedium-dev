@@ -1,4 +1,5 @@
 import React from 'react'
+import RobustImage from './RobustImage'
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
@@ -23,11 +24,12 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', variant = 'full', className = 
 
   if (variant === 'icon') {
     return (
-      <img 
+      <RobustImage 
         src="/multimedium-logo.png" 
         alt="Multimedium Logo"
         className={`${sizeClasses[size]} w-auto object-contain ${className}`}
         loading="eager"
+        fallbackSrc="/logo.svg"
       />
     )
   }
@@ -41,11 +43,12 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', variant = 'full', className = 
   }
 
   return (
-    <img 
+    <RobustImage 
       src="/multimedium-logo.png" 
       alt="Multimedium - Professional Web Development"
       className={`${sizeClasses[size]} w-auto object-contain ${className}`}
       loading="eager"
+      fallbackSrc="/logo.svg"
     />
   )
 }

@@ -14,10 +14,21 @@ export default defineConfig({
   build: {
     // Optimize for production deployment
     sourcemap: false,
+    assetsInlineLimit: 0, // Keep all assets as separate files
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
+        },
+        assetFileNames: (assetInfo) => {
+          // Keep original file names for better debugging
+          if (assetInfo.name && assetInfo.name.endsWith('.png')) {
+            return '[name][extname]'
+          }
+          if (assetInfo.name && (assetInfo.name.endsWith('.jpg') || assetInfo.name.endsWith('.webp'))) {
+            return '[name][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
         },
       },
     },
