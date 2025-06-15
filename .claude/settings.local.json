@@ -24,7 +24,8 @@
       "WebFetch(domain:parealestatesupport.com)",
       "WebFetch(domain:behealingacres.com)",
       "WebFetch(domain:falls.multimedium.dev)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(vercel:*)"
     ],
     "deny": []
   }

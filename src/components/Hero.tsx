@@ -1,5 +1,6 @@
 import { ArrowDown, Zap, Sparkles, Award, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import RobustImage from './RobustImage'
 
 /**
  * Hero section component - the main landing area
@@ -104,9 +105,13 @@ const Hero: React.FC = () => {
               {/* Gradient border effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full p-1 animate-pulse-slow">
                 <div className="w-full h-full bg-background rounded-full p-2">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-2xl">
-                    <div className="text-4xl md:text-6xl font-bold text-primary">HW</div>
-                  </div>
+                  <RobustImage
+                    src="/profile-picture.jpg"
+                    alt="Haydn Watkins - Professional Web Developer"
+                    className="w-full h-full rounded-full object-cover shadow-2xl"
+                    loading="eager"
+                    fallbackSrc="/multimedium-logo.png"
+                  />
                 </div>
               </div>
               
