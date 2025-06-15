@@ -1,15 +1,10 @@
-import React, { useState } from 'react'
-import { ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { ArrowLeft, ArrowRight, CheckCircle, AlertCircle, Phone } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { trackContactFormSubmission } from './AdvancedAnalytics'
-
-/**
- * Multi-step lead qualification form to filter high-value prospects
- * Pre-qualifies leads and demonstrates premium positioning
- */
+import { trackContactFormSubmission } from '@/components/AdvancedAnalytics'
 
 interface FormData {
   projectType: string
@@ -24,8 +19,22 @@ interface FormData {
   goals: string[]
 }
 
+interface FormErrors {
+  name?: string
+  email?: string
+  company?: string
+  phone?: string
+  projectDetails?: string
+}
+
 const LeadQualificationForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string>('')
+  const [errors, setErrors] = useState<FormErrors>({})
+  const totalSteps = 4
+
   const [formData, setFormData] = useState<FormData>({
     projectType: '',
     timeline: '',
@@ -38,10 +47,26 @@ const LeadQualificationForm: React.FC = () => {
     currentWebsite: '',
     goals: []
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const totalSteps = 4
+  // Load form data from localStorage on component mount
+  useEffect(() => {
+    const savedData = localStorage.getItem('leadQualificationForm')
+    if (savedData) {
+      try {
+        const parsed = JSON.parse(savedData)
+        setFormData(parsed)
+      } catch (error) {
+        console.error('Error loading saved form data:', error)
+      }
+    }
+  }, [])
+
+  // Save form data to localStorage whenever it changes
+  useEffect(() => {
+    if (formData.name || formData.email || formData.projectType) {
+      localStorage.setItem('leadQualificationForm', JSON.stringify(formData))
+    }
+  }, [formData])
 
   const projectTypes = [
     { id: 'new-website', label: 'New Website', price: '$15K+', icon: '🌟' },
@@ -75,8 +100,68 @@ const LeadQualificationForm: React.FC = () => {
     'Reduce manual work'
   ]
 
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const validatePhone = (phone: string): boolean => {
+    if (!phone) return true // Phone is optional
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
+    return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))
+  }
+
+  const validateStep3 = (): FormErrors => {
+    const stepErrors: FormErrors = {}
+    
+    if (!formData.name.trim()) {
+      stepErrors.name = 'Name is required'
+    } else if (formData.name.trim().length < 2) {
+      stepErrors.name = 'Name must be at least 2 characters'
+    }
+
+    if (!formData.email.trim()) {
+      stepErrors.email = 'Email is required'
+    } else if (!validateEmail(formData.email)) {
+      stepErrors.email = 'Please enter a valid email address'
+    }
+
+    if (!formData.company.trim()) {
+      stepErrors.company = 'Company name is required'
+    }
+
+    if (formData.phone && !validatePhone(formData.phone)) {
+      stepErrors.phone = 'Please enter a valid phone number'
+    }
+
+    return stepErrors
+  }
+
+  const validateStep4 = (): FormErrors => {
+    const stepErrors: FormErrors = {}
+    
+    if (!formData.projectDetails.trim()) {
+      stepErrors.projectDetails = 'Project description is required'
+    } else if (formData.projectDetails.trim().length < 20) {
+      stepErrors.projectDetails = 'Please provide more details about your project (at least 20 characters)'
+    }
+
+    return stepErrors
+  }
+
   const handleNext = () => {
-    if (currentStep < totalSteps) {
+    let stepErrors: FormErrors = {}
+    
+    // Validate current step before proceeding
+    if (currentStep === 3) {
+      stepErrors = validateStep3()
+    } else if (currentStep === 4) {
+      stepErrors = validateStep4()
+    }
+
+    setErrors(stepErrors)
+    
+    if (Object.keys(stepErrors).length === 0 && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1)
     }
   }
@@ -84,6 +169,7 @@ const LeadQualificationForm: React.FC = () => {
   const handlePrevious = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1)
+      setErrors({}) // Clear errors when going back
     }
   }
 
@@ -97,7 +183,20 @@ const LeadQualificationForm: React.FC = () => {
   }
 
   const handleSubmit = async () => {
+    // Final validation
+    const step3Errors = validateStep3()
+    const step4Errors = validateStep4()
+    const allErrors = { ...step3Errors, ...step4Errors }
+    
+    setErrors(allErrors)
+    
+    if (Object.keys(allErrors).length > 0) {
+      setSubmitError('Please fix the errors above before submitting')
+      return
+    }
+
     setIsSubmitting(true)
+    setSubmitError('')
     
     try {
       // Submit to Formspree with qualification data
@@ -111,11 +210,15 @@ const LeadQualificationForm: React.FC = () => {
           formType: 'Lead Qualification',
           _replyto: formData.email,
           _subject: `High-Value Lead: ${formData.name} - ${formData.budget} ${formData.projectType}`,
+          timestamp: new Date().toISOString(),
         }),
       })
 
       if (response.ok) {
         setIsSubmitted(true)
+        // Clear saved form data on successful submission
+        localStorage.removeItem('leadQualificationForm')
+        
         // Track successful form submission
         trackContactFormSubmission('lead_qualification')
         
@@ -124,11 +227,12 @@ const LeadQualificationForm: React.FC = () => {
           (window as any).trackAdWordsConversion('QUOTE_REQUEST_CONVERSION_LABEL')
         }
       } else {
-        throw new Error('Submission failed')
+        const errorData = await response.text()
+        throw new Error(`Submission failed: ${response.status} ${errorData}`)
       }
     } catch (error) {
       console.error('Form submission error:', error)
-      alert('There was an error. Please email me directly at haydn@multimedium.dev')
+      setSubmitError('There was an error submitting your form. Please try again or email me directly at haydn@multimedium.dev')
     } finally {
       setIsSubmitting(false)
     }
@@ -138,8 +242,14 @@ const LeadQualificationForm: React.FC = () => {
     switch (currentStep) {
       case 1: return formData.projectType !== ''
       case 2: return formData.timeline !== '' && formData.budget !== ''
-      case 3: return formData.name !== '' && formData.email !== '' && formData.company !== ''
-      case 4: return formData.projectDetails !== ''
+      case 3: {
+        const stepErrors = validateStep3()
+        return Object.keys(stepErrors).length === 0 && formData.name !== '' && formData.email !== '' && formData.company !== ''
+      }
+      case 4: {
+        const stepErrors = validateStep4()
+        return Object.keys(stepErrors).length === 0 && formData.projectDetails !== ''
+      }
       default: return false
     }
   }
@@ -156,10 +266,26 @@ const LeadQualificationForm: React.FC = () => {
             Based on your responses, this looks like a perfect fit. I'll review your requirements and 
             get back to you within 4-8 hours with next steps and a personalized proposal.
           </p>
-          <div className="bg-green-100 rounded-lg p-4">
+          <div className="bg-green-100 rounded-lg p-4 mb-6">
             <p className="text-sm text-green-700 font-medium">
               💼 Expect a detailed proposal with timeline, investment breakdown, and ROI projections
             </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button 
+              onClick={() => window.location.href = 'tel:+15709946186'}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              <Phone className="h-4 w-4 mr-2" />
+              Call Now: (570) 994-6186
+            </Button>
+            <Button 
+              variant="outline"
+              onClick={() => window.location.href = 'mailto:haydn@multimedium.dev'}
+              className="border-green-600 text-green-600 hover:bg-green-50"
+            >
+              Email Me Directly
+            </Button>
           </div>
         </CardContent>
       </Card>
@@ -193,7 +319,7 @@ const LeadQualificationForm: React.FC = () => {
                 {projectTypes.map((type) => (
                   <div
                     key={type.id}
-                    className={`p-4 border-2 rounded-lg cursor-pointer transition-all hover:shadow-md ${
+                    className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       formData.projectType === type.id
                         ? 'border-primary bg-primary/5'
                         : 'border-gray-200 hover:border-primary/50'
@@ -283,7 +409,14 @@ const LeadQualificationForm: React.FC = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your full name"
+                  className={errors.name ? 'border-red-500' : ''}
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle className="h-4 w-4" />
+                    {errors.name}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Email *</label>
@@ -292,7 +425,14 @@ const LeadQualificationForm: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="your@email.com"
+                  className={errors.email ? 'border-red-500' : ''}
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle className="h-4 w-4" />
+                    {errors.email}
+                  </p>
+                )}
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -302,7 +442,14 @@ const LeadQualificationForm: React.FC = () => {
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   placeholder="Your company name"
+                  className={errors.company ? 'border-red-500' : ''}
                 />
+                {errors.company && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle className="h-4 w-4" />
+                    {errors.company}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Phone</label>
@@ -310,7 +457,14 @@ const LeadQualificationForm: React.FC = () => {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="(555) 123-4567"
+                  className={errors.phone ? 'border-red-500' : ''}
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle className="h-4 w-4" />
+                    {errors.phone}
+                  </p>
+                )}
               </div>
             </div>
             <div>
@@ -334,7 +488,17 @@ const LeadQualificationForm: React.FC = () => {
                 onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
                 placeholder="Describe your vision, requirements, and what success looks like..."
                 rows={5}
+                className={errors.projectDetails ? 'border-red-500' : ''}
               />
+              {errors.projectDetails && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle className="h-4 w-4" />
+                  {errors.projectDetails}
+                </p>
+              )}
+              <p className="text-sm text-gray-500 mt-1">
+                Character count: {formData.projectDetails.length} (minimum 20 recommended)
+              </p>
             </div>
 
             <div>
@@ -360,6 +524,17 @@ const LeadQualificationForm: React.FC = () => {
                 ))}
               </div>
             </div>
+          </div>
+        )}
+
+        {/* Error Display */}
+        {submitError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <div className="flex items-center gap-2 text-red-700">
+              <AlertCircle className="h-5 w-5" />
+              <span className="font-medium">Submission Error</span>
+            </div>
+            <p className="text-red-600 mt-1">{submitError}</p>
           </div>
         )}
 
@@ -390,8 +565,17 @@ const LeadQualificationForm: React.FC = () => {
               disabled={!isStepValid() || isSubmitting}
               className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Project'}
-              <CheckCircle className="h-4 w-4" />
+              {isSubmitting ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  Submit Project
+                  <CheckCircle className="h-4 w-4" />
+                </>
+              )}
             </Button>
           )}
         </div>

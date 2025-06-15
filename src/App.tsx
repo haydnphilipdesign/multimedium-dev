@@ -1,33 +1,42 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Portfolio from './components/Portfolio'
+import CaseStudies from './components/CaseStudies'
 import Services from './components/Services'
 import About from './components/About'
 import Pricing from './components/Pricing'
+import CalendarBooking from './components/CalendarBooking'
 import LeadMagnets from './components/LeadMagnets'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import GoogleAnalytics from './components/AdvancedAnalytics'
 import GoogleMyBusinessOptimization from './components/GoogleMyBusinessOptimization'
 import Blog from './components/Blog'
+import SocialProof from './components/SocialProof'
+import { CriticalCSS, ResourcePreloader, PerformanceDashboard } from './components/SpeedOptimization'
 
 /**
  * Main App component for Multimedium.dev portfolio website
- * Single-page application with smooth scrolling sections
- * Responsive design optimized for desktop and mobile
+ * Optimized for maximum lead conversion with social proof and direct booking
  * 
- * Structure:
- * - Header with navigation
- * - Hero section with introduction
- * - Portfolio showcase
- * - Services offered
- * - About section
- * - Contact form
- * - Footer with social links
+ * Conversion Flow:
+ * - Hero with immediate value proposition
+ * - Portfolio to show capabilities  
+ * - Case Studies with ROI proof (builds trust)
+ * - Services overview
+ * - Pricing with clear packages (qualifies leads)
+ * - Calendar booking (removes friction)
+ * - Social proof throughout (FOMO)
+ * - Contact as final backup
  */
 function App() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Performance optimizations */}
+      <CriticalCSS />
+      <ResourcePreloader />
+      <PerformanceDashboard />
+      
       {/* Google Analytics & SEO */}
       <GoogleAnalytics />
       <GoogleMyBusinessOptimization />
@@ -35,14 +44,17 @@ function App() {
       {/* Fixed header with navigation */}
       <Header />
       
-      {/* Main content sections */}
+      {/* Main content sections - Optimized for conversion */}
       <main>
         <Hero />
+        <SocialProof />
         <Portfolio />
+        <CaseStudies />
         <Services />
         <Pricing />
-        <About />
+        <CalendarBooking />
         <LeadMagnets />
+        <About />
         <Blog />
         <Contact />
       </main>
