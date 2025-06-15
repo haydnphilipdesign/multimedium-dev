@@ -104,31 +104,7 @@ const Hero: React.FC = () => {
               {/* Gradient border effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full p-1 animate-pulse-slow">
                 <div className="w-full h-full bg-background rounded-full p-2">
-                  <img
-                    src="/profile-picture.jpg"
-                    alt="Haydn Watkins - Professional Web Designer"
-                    className="w-full h-full rounded-full object-cover shadow-2xl"
-                    loading="eager"
-                    onLoad={() => console.log('Hero image loaded successfully')}
-                    onError={(e) => {
-                      console.error('Hero image failed to load, trying fallback');
-                      const target = e.currentTarget as HTMLImageElement;
-                      // Try alternative path first
-                      if (target.src.includes('/profile-picture.jpg')) {
-                        target.src = '/portfolio/profile-picture.jpg';
-                      } else {
-                        // If that fails too, show fallback
-                        target.style.display = 'none';
-                        const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) {
-                          fallback.classList.remove('hidden');
-                          fallback.classList.add('flex');
-                        }
-                      }
-                    }}
-                  />
-                  {/* Fallback placeholder */}
-                  <div className="hidden w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 items-center justify-center shadow-2xl">
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-2xl">
                     <div className="text-4xl md:text-6xl font-bold text-primary">HW</div>
                   </div>
                 </div>

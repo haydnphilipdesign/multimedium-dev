@@ -103,11 +103,9 @@ const About: React.FC = () => {
           {/* Enhanced professional image */}
           <div className="relative animate-fade-in animation-delay-500">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur opacity-30"></div>
-            <img
-              src="/profile-picture.jpg"
-              alt="Haydn Watkins - Professional Web Developer"
-              className="relative rounded-xl shadow-2xl w-full h-96 object-cover object-center hover-lift"
-            />
+            <div className="relative rounded-xl shadow-2xl w-full h-96 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center hover-lift">
+              <div className="text-6xl font-bold text-primary">HW</div>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent rounded-xl" />
             
             {/* Floating badge */}
