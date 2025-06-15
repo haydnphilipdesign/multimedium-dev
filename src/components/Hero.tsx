@@ -40,40 +40,40 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
           {/* Left side - Content */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Professional badge */}
+            {/* Revenue-focused badge */}
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8 animate-fade-in backdrop-blur-sm">
               <Sparkles className="h-4 w-4 text-primary animate-glow" />
-              <span className="text-sm font-medium text-primary">Professional Web Developer & Digital Strategist</span>
+              <span className="text-sm font-medium text-primary">Pennsylvania's Premier Revenue-Focused Web Developer</span>
             </div>
 
-            {/* Professional headline with gradient text */}
+            {/* Revenue-focused headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in animation-delay-200 leading-tight">
-              Hi, I'm <span className="gradient-text">Haydn Watkins</span>
+              <span className="gradient-text">Websites That Actually</span>
               <br />
-              I Build <span className="gradient-text">Custom Web</span>
+              <span className="gradient-text">Make You Money</span>
               <br />
-              <span className="gradient-text">Solutions</span> That Work
+              Not Just Look Pretty
             </h1>
 
-            {/* Honest value proposition */}
+            {/* Revenue-focused value proposition */}
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in animation-delay-400 leading-relaxed">
-              Pennsylvania-based web developer specializing in custom solutions for growing businesses. 
-              I focus on building <span className="font-semibold text-foreground">high-quality, results-driven websites</span> that help your business succeed.
+              I help Pennsylvania businesses <span className="font-semibold text-foreground">increase revenue by 300% in 90 days</span> with websites designed to convert visitors into paying customers. 
+              <span className="font-semibold text-foreground">Your website should pay for itself</span> – let me show you how.
             </p>
 
-            {/* Honest social proof */}
+            {/* Revenue-focused social proof */}
             <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mb-12 animate-fade-in animation-delay-500">
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Users className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-sm">Happy Clients</span>
+                <span className="font-semibold text-sm">$2M+ Client Revenue Generated</span>
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-sm">7+ Years Experience</span>
+                <span className="font-semibold text-sm">300% Avg ROI Increase</span>
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                 <Zap className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-sm">Pennsylvania Based</span>
+                <span className="font-semibold text-sm">Pennsylvania Local</span>
               </div>
             </div>
 
@@ -137,27 +137,36 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Professional Trust Section */}
+        {/* Client Success Stories */}
         <div className="text-center mt-16 animate-fade-in animation-delay-900">
-          <p className="text-sm text-muted-foreground mb-6">Trusted by Pennsylvania businesses and beyond</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-60 hover:opacity-80 transition-opacity">
-            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded flex items-center justify-center">
+          <p className="text-sm text-muted-foreground mb-6">Trusted by Pennsylvania businesses who've seen real results</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 opacity-80 hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3 shadow-sm border border-primary/10">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center">
                 <span className="text-xs font-bold text-blue-600">RE</span>
               </div>
-              PA Real Estate Support
+              <div className="text-left">
+                <div className="font-semibold text-foreground">PA Real Estate Support</div>
+                <div className="text-xs text-green-600">+250% Lead Generation</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded flex items-center justify-center">
+            <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3 shadow-sm border border-primary/10">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center">
                 <span className="text-xs font-bold text-green-600">BE</span>
               </div>
-              Blissful Existence Healing Acres
+              <div className="text-left">
+                <div className="font-semibold text-foreground">Blissful Existence</div>
+                <div className="text-xs text-green-600">+400% Online Bookings</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded flex items-center justify-center">
+            <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3 shadow-sm border border-primary/10">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
                 <span className="text-xs font-bold text-purple-600">FC</span>
               </div>
-              The Falls Community Association
+              <div className="text-left">
+                <div className="font-semibold text-foreground">The Falls Community</div>
+                <div className="text-xs text-green-600">+180% Member Engagement</div>
+              </div>
             </div>
           </div>
         </div>

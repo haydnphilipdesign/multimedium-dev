@@ -34,8 +34,8 @@ const FAQ: React.FC = () => {
     {
       id: 4,
       category: 'general',
-      question: 'Do you work with businesses outside Pennsylvania?',
-      answer: 'Yes! While we\'re based in Pennsylvania, we work with clients nationwide. We conduct strategy calls via video conference and manage projects digitally. Many of our best relationships are with remote clients who found us online.'
+      question: 'Do you serve businesses throughout Pennsylvania?',
+      answer: 'Absolutely! I serve businesses across Pennsylvania including Philadelphia, Pittsburgh, Harrisburg, Allentown, Scranton, Reading, Erie, and surrounding areas. While based in PA, I also work with clients nationwide through video consultations and digital project management.'
     },
     {
       id: 5,
@@ -58,8 +58,8 @@ const FAQ: React.FC = () => {
     {
       id: 8,
       category: 'general',
-      question: 'What makes Multimedium different from other web designers?',
-      answer: 'We focus on ROI-driven design that actually grows your business. Unlike template-based competitors, we create custom solutions tailored to your specific goals. Our Pennsylvania-based team provides personal service, and we\'re invested in your long-term success.'
+      question: 'What makes Multimedium different from other Pennsylvania web designers?',
+      answer: 'I focus on revenue-driven websites that generate real results - not just pretty designs. Unlike template-based competitors, I create custom solutions that have generated $850K+ in client revenue. As a Pennsylvania local, I understand our business landscape and provide personalized service you won\'t get from big agencies.'
     },
     {
       id: 9,

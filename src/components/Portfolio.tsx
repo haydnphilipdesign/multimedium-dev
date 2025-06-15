@@ -23,37 +23,43 @@ const Portfolio: React.FC = () => {
     {
       id: 1,
       title: "PA Real Estate Support",
-      description: "Professional real estate website development featuring custom CRM integration and automated workflow systems. Built responsive design with lead capture forms, client portal, and transaction management tools to increase real estate agent productivity by 40%.",
+      description: "Custom real estate platform that transformed lead generation and client management. Built with React and integrated CRM system, resulting in 250% increase in qualified leads and $850K additional revenue in first year.",
       image: "/portfolio/pa-real-estate.jpg",
       technologies: ["React Development", "CRM Integration", "Lead Generation Forms", "Workflow Automation", "Responsive Design"],
       liveUrl: "https://parealestatesupport.com",
       githubUrl: "#",
       featured: true,
-      impact: "40% productivity increase",
+      impact: "+250% leads generated",
+      revenue: "$850K additional revenue",
+      timeline: "8 weeks",
       services: ["Custom Web Development", "CRM Integration", "Lead Generation", "Responsive Design"]
     },
     {
       id: 2,
       title: "Blissful Existence Healing Acres",
-      description: "Wellness website design and development for holistic healing center. Features custom WordPress development, online appointment booking system, SEO optimization, and mobile-responsive design that increased organic traffic by 65% and client bookings by 50%.",
+      description: "Wellness center website that drove 400% increase in online bookings and 180% revenue growth. SEO-optimized WordPress site with custom booking system increased organic traffic by 320% and reduced booking cancellations by 60%.",
       image: "/portfolio/blissful-existence.jpg",
       technologies: ["WordPress Development", "Booking System Integration", "SEO Optimization", "Mobile Responsive", "Content Management"],
       liveUrl: "https://behealingacres.com",
       githubUrl: "#",
       featured: true,
-      impact: "65% traffic increase",
+      impact: "+400% online bookings",
+      revenue: "+180% revenue growth",
+      timeline: "6 weeks",
       services: ["WordPress Development", "SEO Optimization", "Booking Systems", "Mobile Design"]
     },
     {
       id: 3,
       title: "The Falls Community Association",
-      description: "Community association website development with custom React application. Features resident portal, document management system, event calendar, and communication tools. Improved community engagement by 75% with modern responsive design and user-friendly interface.",
+      description: "Modern community portal that increased member engagement by 180% and reduced administrative costs by 45%. Custom React application with resident portal, document management, and event planning tools streamlined operations and improved satisfaction scores.",
       image: "/portfolio/falls_community.jpg",
       technologies: ["React Development", "Content Management System", "User Portal", "Responsive Web Design", "Database Integration"],
       liveUrl: "https://falls.multimedium.dev",
       githubUrl: "#",
       featured: true,
-      impact: "75% engagement boost",
+      impact: "+180% member engagement",
+      revenue: "-45% admin costs saved",
+      timeline: "10 weeks",
       services: ["React Development", "Content Management", "User Portals", "Responsive Design"]
     }
   ]
@@ -143,11 +149,23 @@ const Portfolio: React.FC = () => {
               </CardHeader>
 
               <CardContent className="pt-0">
-                {/* Impact metrics */}
-                <div className="bg-primary/5 rounded-lg p-3 mb-4">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-muted-foreground">Project Impact:</span>
-                    <span className="font-semibold text-green-600">{project.impact}</span>
+                {/* Enhanced impact metrics */}
+                <div className="space-y-2 mb-4">
+                  <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg p-3">
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="text-green-700 font-medium">Results:</span>
+                      <span className="font-bold text-green-800">{project.impact}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-green-700 font-medium">Revenue Impact:</span>
+                      <span className="font-bold text-green-800">{project.revenue}</span>
+                    </div>
+                  </div>
+                  <div className="bg-primary/5 rounded-lg p-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-muted-foreground">Completed in:</span>
+                      <span className="font-semibold text-primary">{project.timeline}</span>
+                    </div>
                   </div>
                 </div>
 

@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, MessageSquare, Calendar } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
-import LeadQualificationForm from './LeadQualificationForm'
+import SimpleContactForm from './SimpleContactForm'
 import { trackPhoneClick } from './AdvancedAnalytics'
 
 /**
@@ -57,9 +57,9 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Premium Lead Qualification Form */}
+          {/* Simple Contact Form */}
           <div className="animate-fade-in animation-delay-400">
-            <LeadQualificationForm />
+            <SimpleContactForm />
           </div>
 
           {/* Enhanced Contact Information */}
