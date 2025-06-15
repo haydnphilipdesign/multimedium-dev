@@ -1,5 +1,4 @@
-import React from 'react'
-import { ArrowRight, Calendar, Phone, Mail } from 'lucide-react'
+import { Phone, Mail, Calendar, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function LeadMagnets() {
