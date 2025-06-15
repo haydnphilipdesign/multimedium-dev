@@ -58,7 +58,8 @@ const Hero: React.FC = () => {
 
             {/* Revenue-focused value proposition */}
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in animation-delay-400 leading-relaxed">
-              I help Pennsylvania businesses <span className="font-semibold text-foreground">increase revenue by 300% in 90 days</span> with websites designed to convert visitors into paying customers. 
+              I help Pennsylvania businesses <span className="font-semibold text-foreground">increase revenue by 300% in 90 days</span> with websites designed to convert visitors into paying customers.
+              <br />
               <span className="font-semibold text-foreground">Your website should pay for itself</span> – let me show you how.
             </p>
 
