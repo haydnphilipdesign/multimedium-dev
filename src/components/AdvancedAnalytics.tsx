@@ -19,7 +19,10 @@ const GoogleAnalytics: React.FC = () => {
     
     // Only load in production or when GA_MEASUREMENT_ID is set to actual ID
     if (GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
-      console.log('Google Analytics ready for setup - replace G-XXXXXXXXXX with your measurement ID')
+      // Remove this log once you've added your Google Analytics measurement ID
+      if (import.meta.env.DEV) {
+        console.log('💡 Google Analytics: Add your measurement ID to AdvancedAnalytics.tsx')
+      }
       return
     }
 
