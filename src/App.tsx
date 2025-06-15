@@ -2,6 +2,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Portfolio from './components/Portfolio'
 import Pricing from './components/Pricing'
+import FAQ from './components/FAQ'
 import CalendarBooking from './components/CalendarBooking'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -19,6 +20,7 @@ import { CriticalCSS, ResourcePreloader, PerformanceDashboard } from './componen
  * - Social Proof: Build trust with testimonials & notifications
  * - Portfolio: Showcase capability with ROI-focused case studies
  * - Pricing: Qualify leads with clear package options
+ * - FAQ: Address common concerns and build trust
  * - Calendar Booking: Primary CTA to schedule consultation
  * - Contact: Backup CTA for direct inquiries
  */
@@ -43,6 +45,7 @@ function App() {
         <SocialProof />
         <Portfolio />
         <Pricing />
+        <FAQ />
         <CalendarBooking />
         <Contact />
       </main>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Logo from './Logo'
 
 /**
  * Header component with responsive navigation
@@ -19,10 +20,8 @@ const Header: React.FC = () => {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Services', href: '#services' },
     { label: 'Pricing', href: '#pricing' },
-    { label: 'About', href: '#about' },
-    { label: 'Blog', href: '#blog' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -59,9 +58,9 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection('#home')}
-              className="text-xl md:text-2xl font-bold text-primary hover:text-primary/90 transition-colors"
+              className="hover:opacity-90 transition-opacity"
             >
-              Multimedium
+              <Logo size="md" variant="full" />
             </button>
           </div>
 

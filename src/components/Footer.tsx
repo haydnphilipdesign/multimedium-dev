@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from 'lucide-react'
 import { trackPhoneClick } from './AdvancedAnalytics'
+import Logo from './Logo'
 
 /**
  * Footer component with contact information and social links
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-primary">Multimedium</h3>
+            <Logo size="lg" variant="full" />
             <p className="text-muted-foreground leading-relaxed">
               Boutique web design and UI/UX studio specializing in clean, modern websites 
               and custom digital experiences for small businesses and organizations.
@@ -81,9 +82,8 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
               <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">Home</a>
               <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</a>
-              <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</a>
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
-              <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">Testimonials</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</a>
+              <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a>
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
             </div>
           </div>
