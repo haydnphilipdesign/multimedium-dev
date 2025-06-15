@@ -10,6 +10,11 @@ import GoogleAnalytics from './components/AdvancedAnalytics'
 import GoogleMyBusinessOptimization from './components/GoogleMyBusinessOptimization'
 import SocialProof from './components/SocialProof'
 import { CriticalCSS, ResourcePreloader, PerformanceDashboard } from './components/SpeedOptimization'
+import StickyContactButton from './components/StickyContactButton'
+import ExitIntentPopup, { useExitIntent } from './components/ExitIntentPopup'
+import LiveChatWidget from './components/LiveChatWidget'
+import ClientWinsTicker from './components/ClientWinsTicker'
+import GoogleReviews from './components/GoogleReviews'
 import './utils/imageDebug' // Load image debugging utilities
 
 /**
@@ -26,6 +31,8 @@ import './utils/imageDebug' // Load image debugging utilities
  * - Contact: Backup CTA for direct inquiries
  */
 function App() {
+  const { showPopup, closePopup } = useExitIntent()
+
   return (
     <div className="min-h-screen bg-background">
       {/* Performance optimizations */}
@@ -37,6 +44,14 @@ function App() {
       <GoogleAnalytics />
       <GoogleMyBusinessOptimization />
       
+      {/* Lead generation widgets */}
+      <ClientWinsTicker />
+      <StickyContactButton />
+      <LiveChatWidget />
+      
+      {/* Exit intent popup */}
+      {showPopup && <ExitIntentPopup onClose={closePopup} />}
+      
       {/* Fixed header with navigation */}
       <Header />
       
@@ -45,6 +60,7 @@ function App() {
         <Hero />
         <SocialProof />
         <Portfolio />
+        <GoogleReviews />
         <Pricing />
         <FAQ />
         <CalendarBooking />

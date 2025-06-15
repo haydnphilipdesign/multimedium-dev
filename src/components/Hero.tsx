@@ -41,10 +41,17 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
           {/* Left side - Content */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Revenue-focused badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8 animate-fade-in backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-primary animate-glow" />
-              <span className="text-sm font-medium text-primary">Pennsylvania's Premier Revenue-Focused Web Developer</span>
+            {/* Urgency badge */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-full px-4 py-2 mb-4 animate-fade-in backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 text-red-600 animate-pulse" />
+              <span className="text-sm font-medium text-red-700">🔥 Taking Only 3 New Clients for Q3 2025</span>
+            </div>
+            
+            {/* Phone number prominently displayed */}
+            <div className="inline-flex items-center gap-3 bg-primary text-white rounded-full px-6 py-3 mb-6 animate-fade-in animation-delay-100 hover:bg-primary/90 transition-colors cursor-pointer">
+              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="font-bold text-lg">📞 (717) 555-0123</span>
+              <span className="text-sm opacity-90">Call Now - Available Today</span>
             </div>
 
             {/* Revenue-focused headline */}

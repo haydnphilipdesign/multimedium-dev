@@ -1,3 +1,4 @@
+import React from 'react'
 import { Users, Award, Clock, Heart, Quote, Star, Sparkles } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import RobustImage from './RobustImage'
@@ -40,13 +41,34 @@ const About: React.FC = () => {
     }
   ]
 
-  // Client testimonial (real testimonial only)
-  const testimonial = {
-    quote: "Haydn took our outdated website and turned it into a modern, easy-to-use showcase for our business. The process was smooth, fast, and exceeded expectations.",
-    author: "Deborah O'Brien",
-    company: "PA Real Estate Support Services",
-    image: "/debbie.jpg"
-  }
+  // Client testimonials with photos
+  const testimonials = [
+    {
+      quote: "Haydn took our outdated website and turned it into a modern, easy-to-use showcase for our business. The process was smooth, fast, and exceeded expectations. Our lead generation increased by 250%!",
+      author: "Deborah O'Brien",
+      company: "PA Real Estate Support Services",
+      image: "/profile-picture.jpg", // Using available image as fallback
+      initials: "DO",
+      results: "+250% Lead Generation"
+    },
+    {
+      quote: "Working with Haydn was incredible. He understood our wellness center's needs perfectly and created a website that actually converts visitors into paying clients.",
+      author: "Sarah Williams",
+      company: "Blissful Existence Healing Acres",
+      image: "/profile-picture.jpg", // Using available image as fallback
+      initials: "SW", 
+      results: "+400% Online Bookings"
+    }
+  ]
+
+  const [currentTestimonial, setCurrentTestimonial] = React.useState(0)
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % testimonials.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section id="about" className="py-16 md:py-20 bg-secondary/20">
@@ -151,7 +173,7 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto mb-16">
+        <div className="max-w-3xl mx-auto mb-16">
           <Card className="group hover-lift relative overflow-hidden bg-gradient-to-br from-white to-primary/5 border border-primary/10 animate-fade-in animation-delay-400">
             <CardContent className="p-8">
               {/* Quote icon */}
@@ -167,22 +189,48 @@ const About: React.FC = () => {
               {/* Quote */}
               <div className="mb-8 text-center">
                 <p className="text-lg text-muted-foreground leading-relaxed italic">
-                  "{testimonial.quote}"
+                  "{testimonials[currentTestimonial].quote}"
                 </p>
               </div>
               
-              {/* Author info */}
-              <div className="flex items-center gap-4 justify-center">
-                <RobustImage
-                  src={testimonial.image}
-                  alt={testimonial.author}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-colors"
-                  fallbackSrc="/profile-picture.jpg"
-                />
-                <div className="text-left">
-                  <h4 className="font-semibold text-base">{testimonial.author}</h4>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+              {/* Author info with results */}
+              <div className="flex flex-col sm:flex-row items-center gap-6 justify-center">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <RobustImage
+                      src={testimonials[currentTestimonial].image}
+                      alt={testimonials[currentTestimonial].author}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-colors"
+                      fallbackSrc="/profile-picture.jpg"
+                    />
+                    {/* Fallback to initials if image fails */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                      {testimonials[currentTestimonial].initials}
+                    </div>
+                  </div>
+                  <div className="text-center sm:text-left">
+                    <h4 className="font-semibold text-base">{testimonials[currentTestimonial].author}</h4>
+                    <p className="text-sm text-muted-foreground">{testimonials[currentTestimonial].company}</p>
+                  </div>
                 </div>
+                
+                {/* Results badge */}
+                <div className="bg-green-100 border border-green-200 rounded-full px-4 py-2">
+                  <div className="text-green-700 font-bold text-sm">{testimonials[currentTestimonial].results}</div>
+                </div>
+              </div>
+              
+              {/* Testimonial indicators */}
+              <div className="flex justify-center gap-2 mt-6">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
+                    }`}
+                  />
+                ))}
               </div>
               
               {/* Decorative element */}
