@@ -44,7 +44,7 @@ const About: React.FC = () => {
     quote: "Haydn took our outdated website and turned it into a modern, easy-to-use showcase for our business. The process was smooth, fast, and exceeded expectations.",
     author: "Deborah O'Brien",
     company: "PA Real Estate Support Services",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b131?w=300&h=300&fit=crop&crop=face"
+    image: "/debbie.jpg"
   }
 
   return (
@@ -106,9 +106,9 @@ const About: React.FC = () => {
             <img
               src="/profile-picture.jpg"
               alt="Haydn Watkins - Professional Web Developer"
-              className="relative rounded-xl shadow-2xl w-full h-80 object-cover hover-lift"
+              className="relative rounded-xl shadow-2xl w-full h-96 object-cover object-center hover-lift"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent rounded-xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent rounded-xl" />
             
             {/* Floating badge */}
             <div className="absolute -bottom-4 left-4 bg-white rounded-lg shadow-lg p-3 border border-primary/20">
